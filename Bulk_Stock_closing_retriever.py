@@ -1,15 +1,15 @@
 import pandas_datareader as pdr
 from datetime import datetime
-f = open("C:/S&P500.txt", 'r')
-SP500 = [' ']
+f = open("/Users/ShivangWork/Desktop/S&P500.txt", 'r')
+SP500 = ['AAPL']
 import csv
-myfile = open("C:/S&P500.csv", 'wb')
+myfile = open("/Users/ShivangWork/Desktop/S&P500.csv", 'wb')
 wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 
 for line in f.readlines():
     SP500.append(line)
 
-#rows = []
+rows = []
 
 for symbol in SP500:
     symbol = symbol[:-1]
@@ -17,7 +17,7 @@ for symbol in SP500:
     row = stock['Adj Close']
     rows = zip(rows, wr.writerow(stock['Adj Close']))
 
- 
+
 stock = ""
 
 for symbol in SP500:
@@ -29,3 +29,4 @@ print stock
 
 
 f.close()
+
